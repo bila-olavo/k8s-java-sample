@@ -72,7 +72,28 @@
                 <artifactId>git-commit-id-plugin</artifactId>
             </plugin>
         </plugins>
+
+        <finalName>project-k8s</finalName>
     </build>
 
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <logback.loglevel>DEBUG</logback.loglevel>
+                <spring.profiles.active>dev</spring.profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <logback.loglevel>INFO</logback.loglevel>
+                <spring.profiles.active>prod</spring.profiles.active>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>
