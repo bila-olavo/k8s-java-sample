@@ -1,0 +1,41 @@
+spring:
+  activemq:
+    broker-url: tcp://${MQ_URL}:${MQ_PORT}
+    user: ${MQ_USER}
+    password: ${MQ_PASSWORD}
+  jms:
+    template:
+      delivery-mode: persistent
+    listener:
+      acknowledge-mode: auto
+
+management:
+  endpoint:
+    info:
+      enabled: true
+    metrics:
+      enabled: true
+
+
+info:
+  app:
+    name:  Message k8s
+    description: Sua descricao
+  build:
+    groupId: @project.groupId@
+    artifact: @project.artifactId@
+    name: @project.name@
+    version: @project.version@
+  env:
+    java:
+      vendor: ${java.specification.vendor}
+      vm-name: ${java.vm.name}
+      runtime-version: ${java.runtime.version}
+
+
+
+
+
+jms:
+  queue:
+    message: project.message.q

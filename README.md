@@ -25,3 +25,7 @@ curl -X POST \
   "sentFromIp": "192.168.0.1",
   "priority": 2
 }'
+
+**Profile**
+
+java -jar -Dspring.profiles.active=prod project-k8s.jar
